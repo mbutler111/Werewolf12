@@ -2,24 +2,221 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RoleScreen">
 
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/roles_woods2"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textTotPla"
         android:layout_width="219dp"
-        android:layout_height="72dp"
+        android:layout_height="66dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="Total Players: 0"
         android:textSize="24sp"
+        android:textColor="@android:color/white"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textTotRol"
+        android:layout_width="219dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Total Roles: 0"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTotPla" />
+
+    <TextView
+        android:id="@+id/textVils"
+        android:layout_width="107dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Villagers"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTotRol" />
+
+    <TextView
+        android:id="@+id/textVilsNum"
+        android:layout_width="107dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVils" />
+
+    <Button
+        android:id="@+id/butVilDow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="-"
+        android:textSize="20sp"
+        android:background="@drawable/screen_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textVilsNum"
+        app:layout_constraintEnd_toStartOf="@+id/textVilsNum"
+        app:layout_constraintTop_toTopOf="@+id/textVils" />
+
+    <Button
+        android:id="@+id/butVilUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="+"
+        android:textSize="20sp"
+        android:background="@drawable/screen_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textVilsNum"
+        app:layout_constraintStart_toEndOf="@+id/textVilsNum"
+        app:layout_constraintTop_toTopOf="@+id/textVils" />
+
+    <TextView
+        android:id="@+id/textSees"
+        android:layout_width="107dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Seers"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textVilsNum" />
+
+    <TextView
+        android:id="@+id/textSeesNum"
+        android:layout_width="107dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSees" />
+
+    <Button
+        android:id="@+id/butSeeDow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="-"
+        android:textSize="20sp"
+        android:background="@drawable/screen_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textSeesNum"
+        app:layout_constraintEnd_toStartOf="@+id/textSeesNum"
+        app:layout_constraintTop_toTopOf="@+id/textSees" />
+
+    <Button
+        android:id="@+id/butSeeUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="+"
+        android:textSize="20sp"
+        android:background="@drawable/screen_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textSeesNum"
+        app:layout_constraintStart_toEndOf="@+id/textSeesNum"
+        app:layout_constraintTop_toTopOf="@+id/textSees" />
+
+    <TextView
+        android:id="@+id/textWolf"
+        android:layout_width="107dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="Werewolves"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textSeesNum" />
+
+    <TextView
+        android:id="@+id/textWolfNum"
+        android:layout_width="107dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="0"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textWolf" />
+
+    <Button
+        android:id="@+id/butWolfDow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="-"
+        android:textSize="20sp"
+        android:background="@drawable/screen_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textWolfNum"
+        app:layout_constraintEnd_toStartOf="@+id/textWolfNum"
+        app:layout_constraintTop_toTopOf="@+id/textWolf" />
+
+    <Button
+        android:id="@+id/butWolfUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="+"
+        android:textSize="20sp"
+        android:background="@drawable/screen_button"
+        app:layout_constraintBottom_toBottomOf="@+id/textWolfNum"
+        app:layout_constraintStart_toEndOf="@+id/textWolfNum"
+        app:layout_constraintTop_toTopOf="@+id/textWolf" />
 
 
 </android.support.constraint.ConstraintLayout>
