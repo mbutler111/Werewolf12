@@ -28,13 +28,26 @@ public class PlayerScreen extends AppCompatActivity {
     }
 
     public void nextScreen(View v){
+        makePlayers();
+
         Intent roleScreen = new Intent(this, RoleScreen.class);
 
         Bundle extra = new Bundle();
         extra.putSerializable("list", list);
 
-        roleScreen.putExtra("list", extra);
+        roleScreen.putExtra("gubbins", extra);
         startActivity(roleScreen);
+    }
+
+    public void makePlayers(){
+        Global.charArray = new Character[list.size()];
+
+        for(int i = 0; i < list.size(); ++i){
+            Character setter = new Character();
+            Global.charArray[i] = setter;
+            Global.charArray[i].order = i;
+            Global.charArray[i].name = list.get(i);
+        }
     }
 
     public void initialize(){
@@ -44,7 +57,7 @@ public class PlayerScreen extends AppCompatActivity {
         list.add("Max");
         list.add("Derek");
         list.add("Emily");
-        list.add("KT");
+        list.add("Hot Chick");
         adapter1 = new ArrayAdapter<String>(this, R.layout.list_white , list);
         players.setAdapter(adapter1);
     }

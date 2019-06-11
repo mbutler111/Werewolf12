@@ -122,6 +122,41 @@ public class RoleScreen extends AppCompatActivity implements View.OnClickListene
         button5.setOnClickListener(this);
         Button button6 = findViewById(R.id.butWolfDow);
         button6.setOnClickListener(this);
+
+        Bundle extra = getIntent().getBundleExtra("gubbins");
+        ArrayList<String> list = (ArrayList<String>) extra.getSerializable("list");
+        int num = list.size();
+        String textSet = "Total Players: " + String.valueOf(num);
+        TextView textPlayer = findViewById(R.id.textTotPla);
+        textPlayer.setText(textSet);
+    }
+
+    public void nextScreen(View v){
+        assignRoles();
+    }
+
+    public void assignRoles(){
+        int[] roles = new int[totRoles];
+        int vilTrack = vilNum;
+        int seeTrack = seeNum;
+        int wolfTrack = wolfNum;
+
+        for(int i = 0; i < totRoles; ++i){
+            if(vilTrack > 0){
+                roles[i] = 1;
+                --vilTrack;
+            }
+            else if(seeTrack > 0){
+                roles[i] = 2;
+                --seeTrack;
+            }
+            else if(wolfTrack > 0){
+                roles[i] = 3;
+                --wolfTrack;
+            }
+
+            Log.i("roles", String.valueOf(i) + " = " + String.valueOf(roles[i]));
+        }
     }
 
     @Override
@@ -156,13 +191,5 @@ public class RoleScreen extends AppCompatActivity implements View.OnClickListene
         actionBar.hide();
 
         initialize();
-
-        Bundle extra = getIntent().getBundleExtra("list");
-        ArrayList<String> list = (ArrayList<String>) extra.getSerializable("list");
-
-        int num = list.size();
-        String textSet = "Total Players: " + String.valueOf(num);
-        TextView textPlayer = findViewById(R.id.textTotPla);
-        textPlayer.setText(textSet);
     }
 }
